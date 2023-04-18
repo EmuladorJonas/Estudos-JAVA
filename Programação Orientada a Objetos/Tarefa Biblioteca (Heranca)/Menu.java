@@ -13,7 +13,13 @@ public class Menu {
     String instDef;
     boolean emprestado;
     int nroPaginas;
+    String nome;
+    String telefone;
+    String email;
+    String cpf;
+    boolean especial;
     Scanner sc = new Scanner(System.in);
+    int escolhaEspecial;
 
 
     public void menuInicio() {
@@ -99,6 +105,31 @@ public class Menu {
 
         Tese tese = new Tese(autor, dataPub, titulo, resumo, emprestado, valorMulta, nroPaginas, dataDef, instDef);
         return tese;
+    }
+
+    public Usuario criarUsuario() { //String nome, String telefone, String email, String cpf, boolean especial
+
+        System.out.println("\n*****ADICIONAR USUARIO*****");
+        System.out.print("Nome: ");
+        nome = sc.nextLine();
+        System.out.print("Telefone: ");
+        telefone = sc.nextLine();
+        System.out.print("Email: ");
+        email = sc.nextLine();
+        System.out.print("CPF: ");
+        cpf = sc.nextLine();
+        System.out.print("Especial?  1.SIM    2.NÃO ");
+        escolhaEspecial = sc.nextInt();
+        if(escolhaEspecial == 1){
+            especial = true;
+        }else if(escolhaEspecial == 2){
+            especial = false;
+        }else{
+            System.out.println("ERRO DE OPÇÃO!!! SAINDO!!!");
+        }
+
+        Usuario usuario = new Usuario(nome, telefone, email, cpf, especial);
+        return usuario;
     }
     
 

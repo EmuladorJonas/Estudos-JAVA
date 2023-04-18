@@ -8,6 +8,9 @@ public static void main(String[] args) {
     Biblioteca biblioteca = new Biblioteca();
     Menu menu = new Menu();
     Scanner sc = new Scanner(System.in);
+    Livro livro = null;
+    Artigo artigo = null;
+    Tese tese = null;
 
     biblioteca.setNome("BibliotecaIF");
     biblioteca.setEndereco("Rua Da BR");
@@ -18,32 +21,45 @@ public static void main(String[] args) {
 
         switch (escolha) {
             case 1: // Adicionar Livro
-                biblioteca.addLivros(menu.criarLivro());
+                livro = menu.criarLivro();
+                biblioteca.addLivros(livro);
+                biblioteca.addPublicacao(livro);
                 break;
 
             case 2: // Adicionar Artigo
-                biblioteca.addArtigos(menu.criarArtigo());
+                artigo = menu.criarArtigo();
+                biblioteca.addArtigos(artigo);
+                biblioteca.addPublicacao(tese);
                 break;
 
             case 3: // Adicionar Tese
-                biblioteca.addTeses(menu.criarTese());
+                tese = menu.criarTese();
+                biblioteca.addTeses(tese);
+                biblioteca.addPublicacao(tese);
                 break;
 
             case 4: // Adicionar Tese
-                biblioteca.addTeses(menu.criarTese());
+                biblioteca.addUsuarios(menu.criarUsuario());
+                break;
+
+            case 5: // Fazer emprestimo
+                biblioteca.addUsuarios(menu.criarUsuario());
                 break;
             
             case 7:
                 System.out.print("O que gostaria de ver? " +
-                                    "\n1- LIVROS" + 
-                                    "\n2- ARTIGOS" + 
-                                    "\n3- TESES---->");
+                                    "\n1- Usuarios" + 
+                                    "\n2- LIVROS" + 
+                                    "\n3- ARTIGOS" + 
+                                    "\n4- TESES---->");
                 escolha2 = sc.nextInt();
                 if(escolha2 == 1) {
-                    biblioteca.mostrarLivros();
+                    biblioteca.mostrarUsuarios();
                 }else if(escolha2 == 2) {
-                    biblioteca.mostrarArtigos();
+                    biblioteca.mostrarLivros();
                 }else if(escolha2 == 3) {
+                    biblioteca.mostrarArtigos();
+                }else if(escolha2 == 4) {
                     biblioteca.mostrarTeses();
                 }else{
                     System.out.println("opção invalida!!!");

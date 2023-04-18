@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.sound.sampled.SourceDataLine;
-
 public class Biblioteca {
     
     private String nome;
@@ -11,6 +9,7 @@ public class Biblioteca {
     ArrayList<Livro> livros = new ArrayList<Livro>();
     ArrayList<Artigo> artigos = new ArrayList<Artigo>();
     ArrayList<Tese> teses = new ArrayList<Tese>();
+    ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
     public void setNome(String nome){
         this.nome = nome;
@@ -44,20 +43,21 @@ public class Biblioteca {
         this.teses.add(tese);
     }
 
-    public boolean encontrarLivro(ArrayList<Livro> livros, String titulo) {
-        for (Livro livro : livros) {
-            if(livro.getTitulo().equals(titulo)) {
-                return true;
-            }    
-        }
-        return false;
+    public void addUsuarios(Usuario usuario) {
+        this.usuarios.add(usuario);
     }
 
-    public String emprestimo(String titulo) {
-        if encontrarLivro(livros, titulo){
-            
+    public String emprestimo(ArrayList<Livro> livros, String titulo) {
+        for (Livro livro : livros) {
+            if(livro.getTitulo().equals(titulo) && livro.getEmprestado() == false) {
+                livro.setEmprestado(true);  
+                return "Emprestimo Sucedido!!!";
+            }    
         }
+        return "Erro!!! O livro não existe ou já está emprestado";
     }
+
+    //livro.setEmprestado(true);
 
 
     public void mostrarLivros(){
@@ -102,6 +102,20 @@ public class Biblioteca {
             "\nPAGINAS: " +this.teses.get(x).getNroPaginas() +
             "\nDATA DE DEFESA: " +this.teses.get(x).getDataDefesa() +
             "\nINSTITUIÇÃO DE DEFESA: " +this.teses.get(x).getInstitutoDefesa()
+            );
+            System.out.println("************************");
+        }
+    }
+
+    public void mostrarUsuarios() { //String nome, String telefone, String email, String cpf, boolean especial
+        System.out.println("Lista de Usuarios "+ this.nome +": ");
+        for(int x = 0; x < this.usuarios.size(); x++){
+            System.out.println("************************");
+            System.out.println(x+1 + ". \n" + 
+            "NOME: " + this.usuarios.get(x).getNome() +
+            "\nTELEFONE: " +this.usuarios.get(x).getTelefone() +
+            "\nEMAIL: " +this.usuarios.get(x).getEmail() +
+            "\nCPF: " +this.usuarios.get(x).getCpf()
             );
             System.out.println("************************");
         }
