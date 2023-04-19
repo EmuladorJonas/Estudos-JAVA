@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Usuario {
     private String nome;
     private String telefone;
@@ -5,6 +7,7 @@ public class Usuario {
     private String cpf;
     private boolean especial;
     private int quantEmprestada; //Quantidade que foi emprestada ao usuario
+    ArrayList<Publicacoes> EmprestimosDoUsuarios = new ArrayList<Publicacoes>();
 
 
     //Construtor de Usuarios
@@ -16,6 +19,7 @@ public class Usuario {
         this.especial = especial;
 
     }
+
 
     public String getNome() {
         return nome;
@@ -64,5 +68,12 @@ public class Usuario {
     public void setQuantEmprestada(int quantEmprestada) {
         this.quantEmprestada = quantEmprestada;
     }
+
+    @Override
+    public String toString() {
+        
+        return "y";
+    }
+
 
 }

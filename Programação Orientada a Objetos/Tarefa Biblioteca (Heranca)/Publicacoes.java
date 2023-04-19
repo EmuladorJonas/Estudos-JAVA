@@ -8,7 +8,7 @@ abstract class Publicacoes {
     private String resumo = " ";
     private boolean emprestado; //Set "true" caso a publicação for emprestada
     private double multa; // valor da multa (o esxercicio pede um valor diferenter para cada pub)
-    private double divida; // calcular aqui o valor da divida total em caso de atraso
+    
     private ArrayList<Publicacoes> refPublicacoes = new ArrayList<Publicacoes>(); //Lista para referência de outras publicações
      //Lista para referência dos autores
 
@@ -62,13 +62,6 @@ abstract class Publicacoes {
         this.multa = multa;
     }
     
-    public double getDivida() {
-        return divida;
-    }
-
-    public void setDivida(double divida) {
-        this.divida = divida;
-    }
 
     public ArrayList<Publicacoes> getRefPublicacoes() {
         return refPublicacoes;

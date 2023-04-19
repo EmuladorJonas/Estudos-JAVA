@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
     String titulo;
-    String dataPub;
+    String dataPub; // Não achei necessário usar a biblioteca de datas do java, já que não é necessário nenhuma operação com a data de criação da Public.
     String autor;
     int nroEdicao;
     double valorMulta;
@@ -22,7 +22,7 @@ public class Menu {
     int escolhaEspecial;
 
 
-    public void menuInicio() {
+    public void menuInicio() { //Mrtodo para o menu inicial
         System.out.println("\n*****MENU*****");
         System.out.println(
             "1 - Adicionar Livro\n"  +
@@ -36,7 +36,7 @@ public class Menu {
         );
     }
 
-    public Livro criarLivro() {
+    public Livro criarLivro() { //Metodo para Criar livro
         
         System.out.println("\n*****ADICIONAR LIVRO*****");
         System.out.print("AUTOR: ");
@@ -61,7 +61,7 @@ public class Menu {
         return livro;
     }
     
-    public Artigo criarArtigo() {
+    public Artigo criarArtigo() { //Metodo para Criar Artigo
         
         System.out.println("\n*****ADICIONAR ARTIGO*****");
         System.out.print("AUTOR: ");
@@ -81,7 +81,7 @@ public class Menu {
         return artigo;
     }
     
-    public Tese criarTese() {
+    public Tese criarTese() { //Metodo para Criar Tese
         
         System.out.println("\n*****ADICIONAR TESE*****");
         System.out.print("AUTOR: ");
@@ -107,7 +107,7 @@ public class Menu {
         return tese;
     }
 
-    public Usuario criarUsuario() { //String nome, String telefone, String email, String cpf, boolean especial
+    public Usuario criarUsuario() { //Metodo para Criar Usuario
 
         System.out.println("\n*****ADICIONAR USUARIO*****");
         System.out.print("Nome: ");

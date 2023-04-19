@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Principal {
@@ -11,6 +12,11 @@ public static void main(String[] args) {
     Livro livro = null;
     Artigo artigo = null;
     Tese tese = null;
+    String NomeUsuario;
+    String nomePublicacao;
+    Usuario usuario = null;
+    Publicacoes publicacao = null;
+    LocalDate dataDeEmprestimo;
 
     biblioteca.setNome("BibliotecaIF");
     biblioteca.setEndereco("Rua Da BR");
@@ -43,7 +49,24 @@ public static void main(String[] args) {
                 break;
 
             case 5: // Fazer emprestimo
-                biblioteca.addUsuarios(menu.criarUsuario());
+            System.out.print("Informe o seu nome de usuario: ");
+            sc.nextLine();
+            NomeUsuario = sc.nextLine();
+            usuario = biblioteca.verificaUsuario(NomeUsuario);
+            if(usuario != null){
+                System.out.print("Informe o nome da publicacao: ");
+                nomePublicacao = sc.nextLine();
+                if(nomePublicacao != null){
+                    dataDeEmprestimo = LocalDate.now();
+                    Emprestimo emprestimo = new Emprestimo(usuario, publicacao, dataDeEmprestimo);
+                }else{
+                    System.out.println("ERRO!!! a publicacao não existe ou ja esta emprestada");
+                }
+            }else{
+                System.out.println("ERRO!!! Usuario não existe!!!");
+            }
+            
+                
                 break;
             
             case 7:

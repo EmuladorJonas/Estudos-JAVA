@@ -10,6 +10,7 @@ public class Biblioteca {
     ArrayList<Artigo> artigos = new ArrayList<Artigo>();
     ArrayList<Tese> teses = new ArrayList<Tese>();
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+    
 
     public void setNome(String nome){
         this.nome = nome;
@@ -47,17 +48,27 @@ public class Biblioteca {
         this.usuarios.add(usuario);
     }
 
-    public String emprestimo(ArrayList<Livro> livros, String titulo) {
-        for (Livro livro : livros) {
-            if(livro.getTitulo().equals(titulo) && livro.getEmprestado() == false) {
-                livro.setEmprestado(true);  
-                return "Emprestimo Sucedido!!!";
+    
+
+    public Publicacoes emprestimo(String nomePublicacao) {
+        for (Publicacoes publicacao : publicacoes) {
+            if(publicacao.getTitulo().equals(nomePublicacao) && publicacao.getEmprestado() == false) {
+                publicacao.setEmprestado(true);  
+                return publicacao;
             }    
         }
-        return "Erro!!! O livro não existe ou já está emprestado";
+        return null;
     }
 
-    //livro.setEmprestado(true);
+
+    public Usuario verificaUsuario(String nome) {
+        for (Usuario usuario : usuarios) {
+            if(usuario.getNome().equals(nome)) {  
+                return usuario;
+            }    
+        }
+        return null;
+    }
 
 
     public void mostrarLivros(){
