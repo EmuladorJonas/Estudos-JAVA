@@ -32,10 +32,6 @@ public class Emprestimo {
 
     }
 
-    public String devolucao(String usuario, String livro) {
-
-    }
-
 
 
     

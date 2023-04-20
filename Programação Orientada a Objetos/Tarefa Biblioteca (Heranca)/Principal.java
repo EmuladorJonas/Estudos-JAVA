@@ -71,7 +71,24 @@ public static void main(String[] args) {
                     break;
 
             case 6: // Devolução
-                biblioteca.addUsuarios(menu.criarUsuario());
+                System.out.print("Informe o seu nome de usuario: ");
+                sc.nextLine();
+                NomeUsuario = sc.nextLine();
+                usuario = biblioteca.BuscaUsuario(NomeUsuario);
+                if(usuario != null){
+                    System.out.print("Informe o nome da publicacao: ");
+                    nomePublicacao = sc.nextLine();
+                    if(nomePublicacao != null){
+                        publicacao = biblioteca.BuscaPublicacao(nomePublicacao);
+                        publicacao.setEmprestado(false);
+                        usuario.setQuantEmprestada(-1);
+                        System.out.println("Devolução sucedida!!!");
+                    }else{
+                        System.out.println("ERRO!!! a publicacao não existe ou ja esta emprestada");
+                    }
+                }else{
+                    System.out.println("ERRO!!! Usuario não existe!!!");
+                }
                 break;
             
             case 7:

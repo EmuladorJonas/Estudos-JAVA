@@ -70,6 +70,27 @@ public class Biblioteca {
         return null;
     }
 
+    public Publicacoes BuscaPublicacao(String nomePublicacao) {
+        for (Publicacoes publicacao : publicacoes) {
+            if(publicacao.getTitulo().equals(nomePublicacao)) {
+                publicacao.setEmprestado(false);  
+                return publicacao;
+            }    
+        }
+        return null;
+    }
+
+    public Usuario BuscaUsuario(String nome) {
+        for (Usuario usuario : usuarios) {
+            if(usuario.getNome().equals(nome)) {  
+                return usuario;
+            }    
+        }
+        return null;
+    }
+
+
+
 
     public void mostrarLivros(){
         System.out.println("Catalogo de LIVROS "+ this.nome +": ");
