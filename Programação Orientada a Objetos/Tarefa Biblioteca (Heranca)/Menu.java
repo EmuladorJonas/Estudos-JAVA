@@ -18,6 +18,8 @@ public class Menu {
     String email;
     String cpf;
     boolean especial;
+    int quantEmprestada;
+    int limiteDeEmprestimos;
     Scanner sc = new Scanner(System.in);
     int escolhaEspecial;
 
@@ -120,15 +122,19 @@ public class Menu {
         cpf = sc.nextLine();
         System.out.print("Especial?  1.SIM    2.NÃO ");
         escolhaEspecial = sc.nextInt();
+        quantEmprestada = 0;
         if(escolhaEspecial == 1){
             especial = true;
+            limiteDeEmprestimos = 1000;
+
         }else if(escolhaEspecial == 2){
             especial = false;
+            limiteDeEmprestimos =1;
         }else{
             System.out.println("ERRO DE OPÇÃO!!! SAINDO!!!");
         }
 
-        Usuario usuario = new Usuario(nome, telefone, email, cpf, especial);
+        Usuario usuario = new Usuario(nome, telefone, email, cpf, especial, quantEmprestada, limiteDeEmprestimos );
         return usuario;
     }
     

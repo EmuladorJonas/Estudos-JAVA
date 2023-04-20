@@ -50,7 +50,7 @@ public class Biblioteca {
 
     
 
-    public Publicacoes emprestimo(String nomePublicacao) {
+    public Publicacoes VerificaPublicacao(String nomePublicacao) {
         for (Publicacoes publicacao : publicacoes) {
             if(publicacao.getTitulo().equals(nomePublicacao) && publicacao.getEmprestado() == false) {
                 publicacao.setEmprestado(true);  
@@ -63,7 +63,7 @@ public class Biblioteca {
 
     public Usuario verificaUsuario(String nome) {
         for (Usuario usuario : usuarios) {
-            if(usuario.getNome().equals(nome)) {  
+            if(usuario.getNome().equals(nome) && usuario.quantEmprestada() <= usuario.limiteDeEmprestimos()) {  
                 return usuario;
             }    
         }

@@ -17,6 +17,7 @@ public static void main(String[] args) {
     Usuario usuario = null;
     Publicacoes publicacao = null;
     LocalDate dataDeEmprestimo;
+    LocalDate previsaoDevolucao;
 
     biblioteca.setNome("BibliotecaIF");
     biblioteca.setEndereco("Rua Da BR");
@@ -49,24 +50,28 @@ public static void main(String[] args) {
                 break;
 
             case 5: // Fazer emprestimo
-            System.out.print("Informe o seu nome de usuario: ");
-            sc.nextLine();
-            NomeUsuario = sc.nextLine();
-            usuario = biblioteca.verificaUsuario(NomeUsuario);
-            if(usuario != null){
-                System.out.print("Informe o nome da publicacao: ");
-                nomePublicacao = sc.nextLine();
-                if(nomePublicacao != null){
-                    dataDeEmprestimo = LocalDate.now();
-                    Emprestimo emprestimo = new Emprestimo(usuario, publicacao, dataDeEmprestimo);
+                System.out.print("Informe o seu nome de usuario: ");
+                sc.nextLine();
+                NomeUsuario = sc.nextLine();
+                usuario = biblioteca.verificaUsuario(NomeUsuario);
+                if(usuario != null){
+                    System.out.print("Informe o nome da publicacao: ");
+                    nomePublicacao = sc.nextLine();
+                    if(nomePublicacao != null){
+                        publicacao = biblioteca.VerificaPublicacao(nomePublicacao);
+                        dataDeEmprestimo = LocalDate.now();
+                        previsaoDevolucao = LocalDate.now().plusDays(7);
+                        Emprestimo emprestimo = new Emprestimo(usuario, publicacao, dataDeEmprestimo, previsaoDevolucao);
+                    }else{
+                        System.out.println("ERRO!!! a publicacao não existe ou ja esta emprestada");
+                    }
                 }else{
-                    System.out.println("ERRO!!! a publicacao não existe ou ja esta emprestada");
-                }
-            }else{
-                System.out.println("ERRO!!! Usuario não existe!!!");
-            }
-            
-                
+                    System.out.println("ERRO!!! Usuario não existe ou excedeu seu limite de emprestimos!!!");
+                }    
+                    break;
+
+            case 6: // Devolução
+                biblioteca.addUsuarios(menu.criarUsuario());
                 break;
             
             case 7:
