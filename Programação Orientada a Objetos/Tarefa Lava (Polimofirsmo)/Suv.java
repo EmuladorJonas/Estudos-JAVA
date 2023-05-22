@@ -6,8 +6,7 @@ public class Suv extends Veiculo {
     private String tipoDeCombustivel;
 
     // Construtor
-    public Suv(String marca, String modelo, String placa, int ano, double valorDaLocacao, String tamanhoPortaMalas,
-            String tipoDeTracao, String tipoDeCombustivel) {
+    public Suv(String marca, String modelo, String placa, int ano, double valorDaLocacao, String tamanhoPortaMalas, String tipoDeTracao, String tipoDeCombustivel) {
         super(marca, modelo, placa, ano, valorDaLocacao);
         this.tamanhoPortaMalas = tamanhoPortaMalas;
         this.tipoDeTracao = tipoDeTracao;
@@ -37,6 +36,13 @@ public class Suv extends Veiculo {
 
     public void setTipoDeCombustivel(String tipoDeCombustivel) {
         this.tipoDeCombustivel = tipoDeCombustivel;
+    }
+
+    public double calcularMulta(int numeroRenovacoes) {
+        if( numeroRenovacoes > 3) {
+            return (numeroRenovacoes - 3) * 100.0;
+        }
+        return 0.0;
     }
 
 }

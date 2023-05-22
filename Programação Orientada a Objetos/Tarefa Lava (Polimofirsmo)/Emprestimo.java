@@ -1,30 +1,31 @@
 public class Emprestimo {
 
     // Atributos
-    private Veiculo veiculo;
-    private Cliente cliente;
+    private Locacao locacao;
+    private Locator locator;
 
     // Construtor
-    public Emprestimo(Veiculo veiculo, Cliente cliente) {
-        this.veiculo = veiculo;
-        this.cliente = cliente;
+    public Emprestimo(Locacao locacao, Locator locator) {
+        this.locacao = locacao;
+        this.locator = locator;
     }
 
     // Getters & Setters
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public Locacao getLocacao() {
+        return locacao;
     }
 
-    public void setVeiculo(Veiculo veiculo) {
-        this.veiculo = veiculo;
+    public void setVeiculo(Locacao locacao) {
+        this.locacao = locacao;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+
+    public Locator getLocator() {
+        return locator;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setLocator(Locator locator) {
+        this.locator = locator;
     }
 
 }

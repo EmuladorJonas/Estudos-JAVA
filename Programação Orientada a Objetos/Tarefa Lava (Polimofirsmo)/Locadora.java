@@ -69,6 +69,22 @@ public class Locadora {
         this.listaEmprestimos = listaEmprestimos;
     }
 
-    
+    // Metodos
+
+    public boolean realizarEmprestimo(Locacao locacao, Locator locator) {
+            //Verifica (caso Pessoa Fisica, se já tem emprestimo)
+            for (Emprestimo emprestimo : listaEmprestimos) {
+                if (emprestimo.getLocator() == locator) {
+                    System.out.println("ERRO!!! Essa pessoa já realizou um emprestimo");
+                    return false;
+                }
+            }
+
+        Emprestimo emprestimo = new Emprestimo(locacao, locator);
+        listaEmprestimos.add(emprestimo);
+        System.out.println("Emprestimo Realizado!!!");
+        return true;
+    }
+
 
 }

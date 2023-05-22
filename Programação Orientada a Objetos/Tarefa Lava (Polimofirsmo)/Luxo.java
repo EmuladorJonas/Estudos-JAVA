@@ -4,10 +4,10 @@ public class Luxo extends Veiculo {
     private int qntAirsBags;
     private String tamanhoPortaMalas;
     private boolean hasGps;
+    
 
     // Construtor
-    public Luxo(String marca, String modelo, String placa, int ano, double valorDaLocacao, int qntAirBags,
-            String tamanhoPortaMalas, boolean hasGps) {
+    public Luxo(String marca, String modelo, String placa, int ano, double valorDaLocacao, int qntAirBags, String tamanhoPortaMalas, boolean hasGps) {
         super(marca, modelo, placa, ano, valorDaLocacao);
         this.qntAirsBags = qntAirBags;
         this.tamanhoPortaMalas = tamanhoPortaMalas;
@@ -39,4 +39,10 @@ public class Luxo extends Veiculo {
         this.hasGps = hasGps;
     }
 
+    public double calcularMulta(int numeroRenovacoes) {
+        if( numeroRenovacoes > 5) {
+            return (numeroRenovacoes - 5) * 100.0;
+        }
+        return 0.0;
+    }
 }
