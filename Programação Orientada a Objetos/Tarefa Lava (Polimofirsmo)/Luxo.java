@@ -39,9 +39,11 @@ public class Luxo extends Veiculo {
         this.hasGps = hasGps;
     }
 
-    public double calcularMulta(int numeroRenovacoes) {
-        if( numeroRenovacoes > 5) {
-            return (numeroRenovacoes - 5) * 100.0;
+    /*Metodo obrigatório calcularMulta Para questões de polimorfismo
+    cada categoria implementa seu próprio metodo de calcular multa*/
+    public double calcularMulta(int qtdRenovacoes) {
+        if( qtdRenovacoes > 5) {
+            return (qtdRenovacoes - 5) * 100.0;
         }
         return 0.0;
     }

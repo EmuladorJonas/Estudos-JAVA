@@ -38,9 +38,13 @@ public class Suv extends Veiculo {
         this.tipoDeCombustivel = tipoDeCombustivel;
     }
 
-    public double calcularMulta(int numeroRenovacoes) {
-        if( numeroRenovacoes > 3) {
-            return (numeroRenovacoes - 3) * 100.0;
+
+    /*Metodo obrigatório calcularMulta. Para questões de polimorfismo
+    cada categoria implementa seu próprio metodo de calcular multa*/
+    @Override
+    public double calcularMulta(int qtdRenovacoes) {
+        if( qtdRenovacoes > 3) {
+            return (qtdRenovacoes - 3) * 100.0;
         }
         return 0.0;
     }

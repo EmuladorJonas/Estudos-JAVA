@@ -18,11 +18,12 @@ public class Popular extends Veiculo {
         this.hasArCondicionado = hasArCondicionado;
     }
 
-    //Metodo obrigatório calcularMulta
+    /*Metodo obrigatório calcularMulta. Para questões de polimorfismo
+    cada categoria implementa seu próprio metodo de calcular multa*/
     @Override
-    public double calcularMulta(int numeroDeRenovacoes) {
-        if (numeroDeRenovacoes > 1) {
-            return (numeroDeRenovacoes - 1) * 50.0; // 1 é o limite para carros pop e 50 é valor aleatorio de multa
+    public double calcularMulta(int qtdRenovacoes) {
+        if (qtdRenovacoes > 1) {
+            return (qtdRenovacoes - 1) * 50.0; // 1 é o limite para carros pop e 50 é valor aleatorio de multa
         }
         return 0.0;
     }

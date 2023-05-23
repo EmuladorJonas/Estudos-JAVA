@@ -1,11 +1,11 @@
-public class Empresa extends Cliente {
+public class ClienteEmpresa extends Cliente {
 
     // Atributos
     private String cnpj;
     private String nomeRepresentante;
 
     // Construtor
-    public Empresa(String nome, String telefone, String endereco, String cnpj, String nomeRepresentante) {
+    public ClienteEmpresa(String nome, String telefone, String endereco, String cnpj, String nomeRepresentante) {
         super(nomeRepresentante, telefone, endereco);
         this.cnpj = cnpj;
         this.nomeRepresentante = nomeRepresentante;

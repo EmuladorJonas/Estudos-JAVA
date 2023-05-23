@@ -1,10 +1,10 @@
-public class PessoaFisica extends Cliente {
+public class ClientePessoaFisica extends Cliente {
 
     // Atributos
     private String cpf;
 
     // Construtor
-    public PessoaFisica(String nome, String telefone, String endereco, String cpf) {
+    public ClientePessoaFisica(String nome, String telefone, String endereco, String cpf) {
         super(nome, telefone, endereco);
         this.cpf = cpf;
     }
