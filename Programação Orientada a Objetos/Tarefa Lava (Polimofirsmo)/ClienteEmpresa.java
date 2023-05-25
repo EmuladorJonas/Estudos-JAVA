@@ -6,7 +6,7 @@ public class ClienteEmpresa extends Cliente {
 
     // Construtor
     public ClienteEmpresa(String nome, String telefone, String endereco, String cnpj, String nomeRepresentante) {
-        super(nomeRepresentante, telefone, endereco);
+        super(nomeRepresentante, telefone, endereco, -1);
         this.cnpj = cnpj;
         this.nomeRepresentante = nomeRepresentante;
     }
@@ -26,6 +26,11 @@ public class ClienteEmpresa extends Cliente {
 
     public void setNomeRepresentante(String nomeRepresentante) {
         this.nomeRepresentante = nomeRepresentante;
+    }
+
+    @Override
+    public boolean liberarEmprestimo() {
+        return true;
     }
 
 }

@@ -4,6 +4,7 @@ public class Principal {
         System.out.println("Hello World!!");
 
         Locadora locadora = new Locadora("LoucaDora", "Rua Tal", "8756416545");
+        System.out.println(locadora);
 
 /* POSSIVEL APLICAÇÃO DO METODO TRY CATCH!!!!
 

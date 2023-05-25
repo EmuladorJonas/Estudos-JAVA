@@ -5,7 +5,7 @@ public class ClientePessoaFisica extends Cliente {
 
     // Construtor
     public ClientePessoaFisica(String nome, String telefone, String endereco, String cpf) {
-        super(nome, telefone, endereco);
+        super(nome, telefone, endereco, 1);
         this.cpf = cpf;
     }
 
@@ -18,4 +18,8 @@ public class ClientePessoaFisica extends Cliente {
         this.cpf = cpf;
     }
 
+    @Override
+    public boolean liberarEmprestimo() {
+        return super.getQtdEmprestimo() < super.getLimiteEmprestimo();
+    }
 }
